@@ -31,6 +31,9 @@ tasks {
 
     jar {
         archiveFileName.set("${rootProject.name}.jar")
+        manifest.attributes.apply {
+            put("Main-Class", "shellw.MainKt")
+        }
         from(configurations.compileClasspath.map { config -> config.map { if (it.isDirectory) it else zipTree(it) } })
     }
 }
